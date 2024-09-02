@@ -1,0 +1,32 @@
+package com.seu_nome.gestaoestoque.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import lombok.Data;
+
+@Data
+@Entity
+public class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+    private String descricao;
+    private double preco;
+    private int quantidade;
+
+}
+package com.seu_nome.gestaoestoque.repository;
+
+import com.seu_nome.gestaoestoque.model.Produto;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
+
+}
+
